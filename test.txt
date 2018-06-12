@@ -1,0 +1,87 @@
+scop /cel_mai_potrivit_tort\.
+
+intrebare : enunt /'Ce buget alocati?'\
+atribut /buget_disponibil\
+optiuni [mic /\ mediu /\ mare].
+
+
+regula /1\
+concluzie cel_mai_potrivit_tort[Etaje_de_trandafiri] f_c/85\
+conditiile:
+	  buget_disponibil/mic\ 
+	 /place_ciocolata\
+	 numar_etaje /5\.
+
+regula/2\ 
+concluzie grad_dificultate_decor[mare] f_c/90\
+conditiile:
+	 /fire_indrazneata\
+	 /atent la detalii\.
+
+regula/3\
+concluzie decor[Martipan_Pasta_de_zahar] f_c/87\
+conditiile:
+	  varsta_client/copil\
+	  /not place_ciocolata\
+	  /not diabet\
+	  grad_dificultate_decor/mare\.
+
+regula/4\
+concluzie cel_mai_potrivit_tort[Alba_ca_zapada_cei_7_pitici]
+conditiile:
+	decor/Martipan_Pasta_de_zahar\
+	numar_etaje/1\
+	buget_mediu/mediu\.
+
+regula/5\
+concluzie crema[Ciocolata_visine_alcool] f_c/91\
+conditiile:
+	varsta_client/adult\
+	gen/masculin\
+	/place_ciocolata\.
+
+regula/6\
+concluzie gramaj[mic] f_c/70\
+conditiile:
+	numar_persoane/4\
+	numar_etaje/1\.
+
+regula/7\
+concluzie cel_mai_potrivit_tort[Tort_Jeni] f_c/75\
+conditiile:
+	crema/Ciocolata_visine_alcool\
+	buget_disponibil/mediu\
+	gramaj/mic\.
+
+regula/8\
+concluzie cel_mai_potrivit_tort[Tort_de_morcovi]
+conditiile:
+	buget_disponibil/mediu\
+	crema/Unt_branza_sarata\
+	numar_etaje/1\
+	decor/frisca_cu_nuca_si_scortisoara\.
+
+regula/9\
+concluzie crema/Unt_branza_sarata\
+conditiile:
+	/not tine_post\
+	/not place_ciocolata\.
+
+regula/10\
+concluzie decor[frisca_cu_nuca_si_scortisoara] f_c 65
+conditiile 
+	/not alergie_nuca\.
+
+
+
+
+
+
+	
+
+
+
+
+
+
+

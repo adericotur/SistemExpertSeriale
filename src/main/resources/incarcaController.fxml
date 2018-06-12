@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="485.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXTextField fx:id="numeFisierTF" alignment="CENTER" layoutX="210.0" layoutY="151.0" prefHeight="25.0" prefWidth="271.0" promptText="Introduceti numele fisierului" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="151.0" />
+      <JFXButton fx:id="trimiteButton" buttonType="RAISED" layoutX="210.0" layoutY="324.0" mnemonicParsing="false" ripplerFill="#090857" styleClass="button-raised" text="Incarca Reguli" textAlignment="CENTER" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="324.0" />
+   </children>
+</AnchorPane>

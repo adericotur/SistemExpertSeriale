@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXListView?>
+
+<!--<AnchorPane xmlns="http://javafx.com/javafx"-->
+            <!--xmlns:fx="http://javafx.com/fxml"-->
+            <!--prefHeight="400.0" prefWidth="600.0">-->
+<!--</AnchorPane>-->
+
+<StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+    <styleClass>
+        <String fx:value="side-menu"/>
+    </styleClass>
+    <JFXListView fx:id="sideList">
+        <Label fx:id="incarca">Incarca</Label>
+        <Label fx:id="consulta">Consulta</Label>
+        <Label fx:id="reinitiaza">Reinitiaza</Label>
+        <Label fx:id="afisareFapte">Afisare fapte</Label>
+        <Label fx:id="cum">Cum</Label>
+        <Label fx:id="iesire">Iesire</Label>
+    </JFXListView>
+</StackPane>

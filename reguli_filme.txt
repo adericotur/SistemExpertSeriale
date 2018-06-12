@@ -1,0 +1,96 @@
+scop@cel_mai_potrivit_serial.
+
+
+
+
+
+regula@1
+lista_premise@(
+     varsta_utilizator@copil@ 
+     @e_animatie@ 
+     ocupatie@elev@ 
+)
+concluzie@
+    (cel_mai_potrivit_serial@=viata_louie , fc@87@).
+
+
+regula@2
+lista_premise@(
+     varsta_utilizator@copil@ 
+     @!e_animatie@ 
+     ocupatie@elev@ 
+)
+concluzie@
+    (cel_mai_potrivit_serial@=vrajitorii_imputiti , fc@92@).
+
+
+regula@3
+lista_premise@(
+     fire_dominanta_utilizator@amuzant@ 
+     varsta_utilizator@adult@ 
+)
+concluzie@
+    (gen@=comedie , fc@68@).
+
+
+regula@4
+lista_premise@(
+     @!are_copii@ 
+     @e_animatie@ 
+     gen@comedie@ 
+)
+concluzie@
+    (cel_mai_potrivit_serial@=rick_si_morty , fc@80@).
+
+
+
+
+
+
+intreaba @varsta_utilizator
+enunt@'Care este categoriea ta de varsta?'
+variante@(
+    copil ||
+    adolescent ||
+    adult ||
+    senior
+).
+
+intreaba @are_copii
+enunt@'Aveti copii?'
+variante@(
+    da ||
+    nu
+).
+
+intreaba @fire_dominanta_utilizator
+enunt@'Care este firea dumneavoastra dominanta?'
+variante@(
+    amuzant ||
+    romantic ||
+    ganditor ||
+    serios ||
+    sumbru
+).
+
+intreaba @e_animatie
+enunt@'Preferati animatie?'
+variante@(
+    da ||
+    nu
+).
+
+
+intreaba @ocupatie
+enunt@'Care este ocupatia dumneavoastra?'
+variante@(
+    elev ||
+    student ||
+    angajat ||
+    fara_ocupatie
+).
+
+
+
+
+
