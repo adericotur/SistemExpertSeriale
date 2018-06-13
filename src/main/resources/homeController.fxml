@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="485.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" layoutX="208.0" layoutY="186.0" text="Gaseste cel mai potrivit film pentru tine" textAlignment="CENTER" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="120.0">
+      <Label alignment="CENTER" layoutX="208.0" layoutY="186.0" text="Gaseste cel mai potrivit serial pentru tine" textAlignment="CENTER" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="120.0">
          <font>
             <Font name="Palatino Linotype" size="19.0" />
          </font>
       </Label>
+      <JFXButton fx:id="deschide" layoutX="372.0" layoutY="230.0" mnemonicParsing="false" text="Deschide" />
    </children>
 </AnchorPane>

@@ -40,8 +40,6 @@ public class ConexiuneProlog {
         InputStream processIs, processStreamErr;
         port=_port;
         fereastra=_fereastra;
-        //obtin cale executabil
-        //String caleExecutabilSicstus = System.getProperty("sicstusProgram", "C:\\Users\\Irina\\Desktop\\SICStus Prolog 4.0.2\\SICStus Prolog 4.0.2\\bin\\sicstus.exe");
         //acces la mediul curent de rulare
         ServerSocket servs=new ServerSocket(port);
         //Socket sock_s=servs.accept();

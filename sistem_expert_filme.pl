@@ -66,7 +66,7 @@ scrie_lista(Stream,T).
 
       
 afiseaza_fapte :-
-	write('Fapte existente în baza de cunostinte:'),
+	write('Fapte existente in baza de cunostinte:'),
 	nl,nl, write(' (Atribut,valoare) '), nl,nl,
 	listeaza_fapte,nl.
 
@@ -135,16 +135,20 @@ executa([_|_]) :-
 %afis_solutii_lista[H|T]):- afis_solutii_lista(T), H = st(FC, Av),scrie_scop(Av, FC).
 %afis_solutii_lista([]).
 
-%stefaniaa
+scrie_dem(L):- 
+	tell('demonstratie.txt'),
+	cum(av(Atr,_)),
+	told.
+
 scopuri_princ :-
 	% scop(Atr),determina(Atr), afiseaza_scop(Atr),fail.
-	scop(Atr),setof(st(FC,Atr,Val), Istorie^(determina(Atr),fapt(av(Atr,Val),FC,Istorie),FC>49),L) -> afis_lista_sol(L); write('Nu am solutii').
+	scop(Atr),setof(st(FC,Atr,Val), Istorie^(determina(Atr),fapt(av(Atr,Val),FC,Istorie),FC>49),L) -> (afis_lista_sol(L),scrie_dem(L)); write('Nu am solutii'),nl.
 
 scopuri_princ.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 scopuri_princ(Stream) :-
 		scop(Atr),determina(Stream,Atr), afiseaza_scop(Stream,Atr),fail.
-		
+
 scopuri_princ(_).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -180,13 +184,11 @@ afiseaza_scop(Stream, Atr) :-
 		nl,fapt(av(Atr,Val),FC,_),
 		FC >= 20,format(Stream,"s(~p este ~p cu fc ~p)",[Atr,Val, FC]),
 		nl(Stream),flush_output(Stream),fail.
-		
+
 afiseaza_scop(_,_):-write('a terminat'),nl.
-		
-		
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		
-		
+
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 scrie_scop(av(Atr,Val),FC) :-
 	transformare(av(Atr,Val), X),
@@ -221,6 +223,9 @@ Not_FC is - FC, !.
 realizare_scop(_,Scop,FC,_) :-
 fapt(Scop,FC,_), !.
 
+realizare_scop(_, av(Atr,_),FC,_) :-
+fapt(av(Atr,nu_conteaza),FC,_), !.
+
 realizare_scop(Stream,Scop,FC,Istorie) :-
 pot_interoga(Stream,Scop,Istorie),
 !,realizare_scop(Stream,Scop,FC,Istorie).
@@ -229,7 +234,7 @@ realizare_scop(Stream,Scop,FC_curent,Istorie) :-
 fg(Stream,Scop,FC_curent,Istorie).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-        
+
 fg(Scop,FC_curent,Istorie) :-
 	regula(N, premise(Lista), concluzie(Scop,FC)),
 	demonstreaza(N,Lista,FC_premise,Istorie),
@@ -245,10 +250,10 @@ fg(Scop,FC,_) :- fapt(Scop,FC,_).
 		ajusteaza(FC,FC_premise,FC_nou),
 		actualizeaza(Scop,FC_nou,FC_curent,N),
 		FC_curent == 100,!.
-		
+
 		fg(_,Scop,FC,_) :- fapt(Scop,FC,_).
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		
+
 pot_interoga(av(Atr,_),Istorie) :-
 	not interogat(av(Atr,_)),
 	interogabil(Atr,Optiuni,Mesaj),
@@ -263,15 +268,15 @@ interogheaza(Stream,Atr,Mesaj,Optiuni,Istorie),nl,
 asserta( interogat(av(Atr,_)) ).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-cum([]) :- 
+cum([]) :-
 	write('Scop? '),nl,
 	write('|:'),citeste_linie(Linie),nl,
 	transformare(Scop,Linie), cum(Scop).
 
-cum(L) :- 
+cum(L) :-
 	transformare(Scop,L),nl, cum(Scop).
 
-cum(not Scop) :- 
+cum(not Scop) :-
 	fapt(Scop,FC,Reguli),
 	lista_float_int(Reguli,Reguli1),
 	FC < -49,transformare(not Scop,PG),
@@ -357,39 +362,17 @@ premisele(N) :-
 	regula(N, premise(Lista_premise), _),
 	!, cum_premise(Lista_premise).
 
-        
+
 cum_premise([]).
 
 cum_premise([Scop|X]) :-
 	cum(Scop),
 	cum_premise(X).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-interogheaza(Atr,Mesaj,[da,nu],Istorie) :-
-	!,write(Mesaj),nl,
-	de_la_utiliz(X,Istorie,[da,nu,nu_stiu,nu_conteaza]),
-	det_val_fc(X,Val,FC), % face transf  in nr float
+interogheaza(Atr,Mesaj,[da, nu],Istorie) :-
+	!,write(Mesaj),nl,scrie_lista(['(',da, nu, nu_stiu, nu_conteaza,')']),nl,
+	de_la_utiliz(X,Istorie,[da, nu, nu_stiu, nu_conteaza]),
+	det_val_fc(X,Val,FC),
 	asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
 
 interogheaza(Atr,Mesaj,Optiuni,Istorie) :-
@@ -397,7 +380,7 @@ interogheaza(Atr,Mesaj,Optiuni,Istorie) :-
 	citeste_opt(VLista,Optiuni,Istorie),
 	assert_fapt(Atr,VLista).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-/*        
+/*
 interogheaza(Stream,Atr,Mesaj,[da,nu],Istorie) :-
 	!,write(Stream,i(Mesaj)),nl(Stream),flush_output(Stream),
 	write('\n Intrebare atr boolean\n'),
@@ -406,7 +389,7 @@ interogheaza(Stream,Atr,Mesaj,[da,nu],Istorie) :-
 	asserta( fapt(av(Atr,Val),FC,[utiliz]) ).
 */
 
-        
+
 interogheaza(Stream,Atr,Mesaj,[da,nu],Istorie) :-
 	!,write(Stream,i(Mesaj)),nl(Stream),flush_output(Stream),
 	write(Stream, '(da nu nu_stiu nu_conteaza)'),nl(Stream),flush_output(Stream),
@@ -432,7 +415,7 @@ citeste_opt(X,Optiuni,Istorie) :-
 	scrie_lista(Opt),
 	de_la_utiliz(X,Istorie,OptAux).
 
-de_la_utiliz(X,Istorie,Optiuni).
+%de_la_utiliz(X,Istorie,Optiuni).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 citeste_opt(Stream,X,Optiuni,Istorie) :-
 	append(Optiuni,[nu_stiu,nu_conteaza],OptAux),
@@ -444,7 +427,7 @@ citeste_opt(Stream,X,Optiuni,Istorie) :-
 
 
 de_la_utiliz(X,Istorie,Lista_opt) :-
-	repeat,write(': '),citeste_linie(X), 
+	repeat,write(': '),citeste_linie(X),
 	proceseaza_raspuns(X,Istorie,Lista_opt).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -483,7 +466,7 @@ det_val_fc([Val,fc,FC],Val,FC).
 
 det_val_fc([Val],Val,100).
 
-        
+
 afis_istorie([]) :- nl.
 
 afis_istorie([scop(X)|T]) :-
@@ -520,7 +503,7 @@ Val_interm is min(Val_actuala,FC),
 Val_interm >= 20,
 dem(Stream,T,Val_interm,Val_finala,Istorie).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
+
 actualizeaza(Scop,FC_nou,FC,RegulaN) :-
 	fapt(Scop,FC_vechi,_),
 	combina(FC_nou,FC_vechi,FC),
@@ -622,10 +605,10 @@ trad(scop(X)) --> [scop,'@',X].
 
 % trad(scop(X)) --> [scopul,X].
 
-% trad(interogabil(Atr,M,P)) --> 
+% trad(interogabil(Atr,M,P)) -->
 % [intreaba,Atr],lista_optiuni(M),afiseaza(Atr,P).
 
-trad(interogabil(Atr,M,P)) --> 
+trad(interogabil(Atr,M,P)) -->
 [intreaba,'@',Atr],[enunt,'@',P],lista_optiuni(M).
 
 % trad(regula(N,premise(Daca),concluzie(Atunci,F))) --> identificator(N),daca(Daca),atunci(Atunci,F).
@@ -703,67 +686,67 @@ propoz_concluzii(av(Atr,da)) --> ['@',Atr], !.
 
 citeste_linie([Cuv|Lista_cuv]) :-
 	get_code(Car),
-	citeste_cuvant(Car, Cuv, Car1), 
+	citeste_cuvant(Car, Cuv, Car1),
 	rest_cuvinte_linie(Car1, Lista_cuv).
- 
-      
+
+
 % -1 este codul ASCII pt EOF
 
 rest_cuvinte_linie(-1, []):-!.
-    
+
 rest_cuvinte_linie(Car,[]) :-(Car==13;Car==10), !.
 
 rest_cuvinte_linie(Car,[Cuv1|Lista_cuv]) :-
-	citeste_cuvant(Car,Cuv1,Car1),      
+	citeste_cuvant(Car,Cuv1,Car1),
 	rest_cuvinte_linie(Car1,Lista_cuv).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%stream%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 citeste_linie(Stream,[Cuv|Lista_cuv]) :-
 get_code(Stream,Car),
-citeste_cuvant(Stream,Car, Cuv, Car1), 
+citeste_cuvant(Stream,Car, Cuv, Car1),
 rest_cuvinte_linie(Stream,Car1, Lista_cuv).
- 
-      
+
+
 % -1 este codul ASCII pt EOF
 
 rest_cuvinte_linie(_,-1, []):-!.
-    
+
 rest_cuvinte_linie(_,Car,[]) :-(Car==13;Car==10), !.
 
 rest_cuvinte_linie(Stream,Car,[Cuv1|Lista_cuv]) :-
-citeste_cuvant(Stream,Car,Cuv1,Car1),      
+citeste_cuvant(Stream,Car,Cuv1,Car1),
 rest_cuvinte_linie(Stream,Car1,Lista_cuv).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 citeste_propozitie([Cuv|Lista_cuv]) :-
-	get_code(Car),citeste_cuvant(Car, Cuv, Car1), 
+	get_code(Car),citeste_cuvant(Car, Cuv, Car1),
 	rest_cuvinte_propozitie(Car1, Lista_cuv).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 citeste_propozitie(Stream, [Cuv|Lista_cuv]) :-
-get_code(Stream, Car),citeste_cuvant(Stream, Car, Cuv, Car1), 
+get_code(Stream, Car),citeste_cuvant(Stream, Car, Cuv, Car1),
 rest_cuvinte_propozitie(Stream, Car1, Lista_cuv).
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
- 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 rest_cuvinte_propozitie(-1, []):-!.
-    
+
 rest_cuvinte_propozitie(Car,[]) :-Car==46, !.
 
 rest_cuvinte_propozitie(Car,[Cuv1|Lista_cuv]) :-
-	citeste_cuvant(Car,Cuv1,Car1),      
+	citeste_cuvant(Car,Cuv1,Car1),
 	rest_cuvinte_propozitie(Car1,Lista_cuv).
 
 
 citeste_cuvant(-1,end_of_file,-1):-!.
 
-citeste_cuvant(Caracter,Cuvant,Caracter1) :-   
-	caracter_cuvant(Caracter),!, 
+citeste_cuvant(Caracter,Cuvant,Caracter1) :-
+	caracter_cuvant(Caracter),!,
 	name(Cuvant, [Caracter]),get_code(Caracter1).
 
 citeste_cuvant(Caracter, Numar, Caracter1) :-
 	caracter_numar(Caracter),!,
 	citeste_tot_numarul(Caracter, Numar, Caracter1).
- 
+
 
 citeste_tot_numarul(Caracter,Numar,Caracter1):-
 	determina_lista(Lista1,Caracter1),
@@ -772,34 +755,34 @@ citeste_tot_numarul(Caracter,Numar,Caracter1):-
 
 
 determina_lista(Lista,Caracter1):-
-	get_code(Caracter), 
+	get_code(Caracter),
 	(caracter_numar(Caracter),
 	determina_lista(Lista1,Caracter1),
-	append([Caracter],Lista1,Lista); 
+	append([Caracter],Lista1,Lista);
 	\+(caracter_numar(Caracter)),
 	Lista=[],Caracter1=Caracter).
- 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 rest_cuvinte_propozitie(_,-1, []):-!.
-    
+
 rest_cuvinte_propozitie(_,Car,[]) :-Car==46, !.
 
 rest_cuvinte_propozitie(Stream,Car,[Cuv1|Lista_cuv]) :-
-citeste_cuvant(Stream,Car,Cuv1,Car1),      
+citeste_cuvant(Stream,Car,Cuv1,Car1),
 rest_cuvinte_propozitie(Stream,Car1,Lista_cuv).
 
 
 citeste_cuvant(_,-1,end_of_file,-1):-!.
 
-citeste_cuvant(Stream,Caracter,Cuvant,Caracter1) :-   
-caracter_cuvant(Caracter),!, 
+citeste_cuvant(Stream,Caracter,Cuvant,Caracter1) :-
+caracter_cuvant(Caracter),!,
 name(Cuvant, [Caracter]),get_code(Stream,Caracter1).
 
 citeste_cuvant(Stream,Caracter, Numar, Caracter1) :-
 caracter_numar(Caracter),!,
 citeste_tot_numarul(Stream,Caracter, Numar, Caracter1).
- 
+
 
 citeste_tot_numarul(Stream,Caracter,Numar,Caracter1):-
 determina_lista(Stream,Lista1,Caracter1),
@@ -808,10 +791,10 @@ transforma_lista_numar(Lista,Numar).
 
 
 determina_lista(Stream,Lista,Caracter1):-
-get_code(Stream,Caracter), 
+get_code(Stream,Caracter),
 (caracter_numar(Caracter),
 determina_lista(Stream,Lista1,Caracter1),
-append([Caracter],Lista1,Lista); 
+append([Caracter],Lista1,Lista);
 \+(caracter_numar(Caracter)),
 Lista=[],Caracter1=Caracter).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -819,7 +802,7 @@ Lista=[],Caracter1=Caracter).
 transforma_lista_numar([],0).
 
 transforma_lista_numar([H|T],N):-
-	transforma_lista_numar(T,NN), 
+	transforma_lista_numar(T,NN),
 	lungime(T,L), Aux is exp(10,L),
 	HH is H-48,N is HH*Aux+NN.
 
@@ -848,19 +831,19 @@ pana_la_urmatorul_apostrof(Lista_caractere):-
 	Lista_caractere=[Caracter|Lista_caractere1]).
 
 
-citeste_cuvant(Caracter,Cuvant,Caracter1) :-          
-	caractere_in_interiorul_unui_cuvant(Caracter),!,              
+citeste_cuvant(Caracter,Cuvant,Caracter1) :-
+	caractere_in_interiorul_unui_cuvant(Caracter),!,
 	((Caracter>64,Caracter<91),!,
 	Caracter_modificat is Caracter+32;
-	Caracter_modificat is Caracter),                              
+	Caracter_modificat is Caracter),
 	citeste_intreg_cuvantul(Caractere,Caracter1),
 	name(Cuvant,[Caracter_modificat|Caractere]).
-        
+
 
 citeste_intreg_cuvantul(Lista_Caractere,Caracter1) :-
 	get_code(Caracter),
 	(caractere_in_interiorul_unui_cuvant(Caracter),
-	((Caracter>64,Caracter<91),!, 
+	((Caracter>64,Caracter<91),!,
 	Caracter_modificat is Caracter+32;
 	Caracter_modificat is Caracter),
 	citeste_intreg_cuvantul(Lista_Caractere1, Caracter1),
@@ -868,10 +851,10 @@ citeste_intreg_cuvantul(Lista_Caractere,Caracter1) :-
 	Lista_Caractere=[], Caracter1=Caracter).
 
 
-citeste_cuvant(_,Cuvant,Caracter1) :-                
-	get_code(Caracter),       
+citeste_cuvant(_,Cuvant,Caracter1) :-
+	get_code(Caracter),
 	citeste_cuvant(Caracter,Cuvant,Caracter1).
- 
+
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 citeste_cuvant(Stream,Caracter,Cuvant,Caracter1) :-
@@ -879,40 +862,40 @@ citeste_cuvant(Stream,Caracter,Cuvant,Caracter1) :-
 		pana_la_urmatorul_apostrof(Stream,Lista_caractere),
 		L=[Caracter|Lista_caractere],
 		name(Cuvant, L),get_code(Stream,Caracter1).
-				
-		
+
+
 		pana_la_urmatorul_apostrof(Stream,Lista_caractere):-
 		get_code(Stream,Caracter),
 		(Caracter == 39,Lista_caractere=[Caracter];
 		Caracter\==39,
 		pana_la_urmatorul_apostrof(Stream,Lista_caractere1),
 		Lista_caractere=[Caracter|Lista_caractere1]).
-		
-		
-		citeste_cuvant(Stream,Caracter,Cuvant,Caracter1) :-          
-		caractere_in_interiorul_unui_cuvant(Caracter),!,              
+
+
+		citeste_cuvant(Stream,Caracter,Cuvant,Caracter1) :-
+		caractere_in_interiorul_unui_cuvant(Caracter),!,
 		((Caracter>64,Caracter<91),!,
 		Caracter_modificat is Caracter+32;
-		Caracter_modificat is Caracter),                              
+		Caracter_modificat is Caracter),
 		citeste_intreg_cuvantul(Stream,Caractere,Caracter1),
 		name(Cuvant,[Caracter_modificat|Caractere]).
-				
-		
+
+
 		citeste_intreg_cuvantul(Stream,Lista_Caractere,Caracter1) :-
 		get_code(Stream,Caracter),
 		(caractere_in_interiorul_unui_cuvant(Caracter),
-		((Caracter>64,Caracter<91),!, 
+		((Caracter>64,Caracter<91),!,
 		Caracter_modificat is Caracter+32;
 		Caracter_modificat is Caracter),
 		citeste_intreg_cuvantul(Stream,Lista_Caractere1, Caracter1),
 		Lista_Caractere=[Caracter_modificat|Lista_Caractere1]; \+(caractere_in_interiorul_unui_cuvant(Caracter)),
 		Lista_Caractere=[], Caracter1=Caracter).
-		
-		
-		citeste_cuvant(Stream,_,Cuvant,Caracter1) :-                
-		get_code(Stream,Caracter),       
+
+
+		citeste_cuvant(Stream,_,Cuvant,Caracter1) :-
+		get_code(Stream,Caracter),
 		citeste_cuvant(Stream,Caracter,Cuvant,Caracter1).
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 caracter_cuvant(C):-member(C,[44,59,58,63,33,46,41,40,64,124,61]).
 
@@ -930,58 +913,67 @@ inceput:-format('Salutare\n',[]),	flush_output,
 				prolog_flag(argv, [PortSocket|_]), %preiau numarul portului, dat ca argument cu -a
 				%portul este atom, nu constanta numerica, asa ca trebuie sa il convertim la numar
 				atom_chars(PortSocket,LCifre),
-				number_chars(Port,LCifre),%transforma lista de cifre in numarul din 
+				number_chars(Port,LCifre),%transforma lista de cifre in numarul din
 				socket_client_open(localhost: Port, Stream, [type(text)]),
 				proceseaza_text_primit(Stream,0).
-				
-				
+
+
 proceseaza_text_primit(Stream,C):-
 				write(inainte_de_citire),
 				read(Stream,CevaCitit),
 				write(dupa_citire),
 				write(CevaCitit),nl,
 				proceseaza_termen_citit(Stream,CevaCitit,C).
-				
+
 proceseaza_termen_citit(Stream,salut,C):-
 				write(Stream,'salut, bre!\n'),
 				flush_output(Stream),
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).
-				
+
 proceseaza_termen_citit(Stream,'I hate you!',C):-
 				write(Stream,'I hate you too!!'),
 				flush_output(Stream),
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).
-				
+
 
 proceseaza_termen_citit(Stream,director(D),C):- %pentru a seta directorul curent
 				format(Stream,'Locatia curenta de lucru s-a deplasat la adresa ~p.',[D]),
 				format('Locatia curenta de lucru s-a deplasat la adresa ~p',[D]),
-				
+
 				X=current_directory(_,D),
 				write(X),
 				call(X),
 				nl(Stream),
 				flush_output(Stream),
 				C1 is C+1,
-				proceseaza_text_primit(Stream,C1).				
-				
-				
+				proceseaza_text_primit(Stream,C1).
+
+
 proceseaza_termen_citit(Stream, incarca(X),C):-
 				write(Stream,'Se incearca incarcarea fisierului\n'),
 				flush_output(Stream),
 				incarca(X),
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).
-				
+
 proceseaza_termen_citit(Stream, comanda(consulta),C):-
 				write(Stream,'Se incepe consultarea\n'),
 				flush_output(Stream),
 				scopuri_princ(Stream),
 				C1 is C+1,
 				proceseaza_text_primit(Stream,C1).
-				
+				proceseaza_text_primit(Stream,C1).
+
+proceseaza_termen_citit(Stream, comanda(reinitiaza),C):-
+				write(Stream,'Reinitiere\n'),
+				flush_output(Stream),
+				retractall(interogat(_)),
+				retractall(fapt(_,_,_)),
+				C1 is C+1,
+				proceseaza_text_primit(Stream,C1).
+
 proceseaza_termen_citit(Stream, X, _):- % cand vrem sa-i spunem "Pa"
 				(X == end_of_file ; X == exit),
 				write(gata),nl,

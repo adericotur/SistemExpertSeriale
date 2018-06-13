@@ -1,0 +1,178 @@
+cel_mai_potrivit_serial este house_of_cards a fost derivat cu ajutorul regulilor:  82 
+
+regula @ 82 
+lista premise @ ( 
+     varsta_utilizator @ adult @ 
+     @ ! e_animatie @ 
+     @ e_rabdatoare @ 
+) concluzie @ 
+    cel_mai_potrivit_serial @ = house_of_cards 90 
+
+varsta_utilizator este adult a fost derivat cu ajutorul regulilor:  utiliz 
+
+not e_animatie a fost derivat cu ajutorul regulilor:  utiliz 
+
+e_rabdatoare a fost derivat cu ajutorul regulilor:  utiliz 
+
+cel_mai_potrivit_serial este mr_robot a fost derivat cu ajutorul regulilor:  67 
+
+regula @ 67 
+lista premise @ ( 
+     varsta_utilizator @ adult @ 
+     @ ongoing @ 
+     @ ! e_animatie @ 
+) concluzie @ 
+    cel_mai_potrivit_serial @ = mr_robot 89 
+
+varsta_utilizator este adult a fost derivat cu ajutorul regulilor:  utiliz 
+
+ongoing a fost derivat cu ajutorul regulilor:  19 
+
+regula @ 19 
+lista premise @ ( 
+     @ e_rabdatoare @ 
+) concluzie @ 
+    @ ongoing 98 
+
+e_rabdatoare a fost derivat cu ajutorul regulilor:  utiliz 
+
+not e_animatie a fost derivat cu ajutorul regulilor:  utiliz 
+
+regula @ 67 
+lista premise @ ( 
+     varsta_utilizator @ adult @ 
+     @ ! ongoing @ 
+     @ e_animatie @ 
+) concluzie @ 
+    cel_mai_potrivit_serial @ = futurama 91 
+
+varsta_utilizator este adult a fost derivat cu ajutorul regulilor:  utiliz 
+
+ongoing a fost derivat cu ajutorul regulilor:  19 
+
+regula @ 19 
+lista premise @ ( 
+     @ e_rabdatoare @ 
+) concluzie @ 
+    @ ongoing 98 
+
+e_rabdatoare a fost derivat cu ajutorul regulilor:  utiliz 
+
+not e_animatie a fost derivat cu ajutorul regulilor:  utiliz 
+
+lungime_serial este lung a fost derivat cu ajutorul regulilor:  21 
+
+regula @ 21 
+lista premise @ ( 
+     @ formare_obicei @ 
+     petrece_timp_tv_pc @ mult @ 
+) concluzie @ 
+    lungime_serial @ = lung 95 
+
+formare_obicei a fost derivat cu ajutorul regulilor:  utiliz 
+
+petrece_timp_tv_pc este mult a fost derivat cu ajutorul regulilor:  utiliz 
+
+formare_obicei a fost derivat cu ajutorul regulilor:  utiliz 
+
+ongoing a fost derivat cu ajutorul regulilor:  19 
+
+regula @ 19 
+lista premise @ ( 
+     @ e_rabdatoare @ 
+) concluzie @ 
+    @ ongoing 98 
+
+e_rabdatoare a fost derivat cu ajutorul regulilor:  utiliz 
+
+fire_dominanta_utilizator este serios a fost derivat cu ajutorul regulilor:  utiliz 
+
+cel_mai_potrivit_serial este black_mirror a fost derivat cu ajutorul regulilor:  52 
+
+regula @ 52 
+lista premise @ ( 
+     varsta_utilizator @ adult @ 
+     @ ! e_animatie @ 
+     lungime_episod @ peste_60 @ 
+) concluzie @ 
+    cel_mai_potrivit_serial @ = black_mirror 87 
+
+varsta_utilizator este adult a fost derivat cu ajutorul regulilor:  utiliz 
+
+not e_animatie a fost derivat cu ajutorul regulilor:  utiliz 
+
+lungime_episod este peste_60 a fost derivat cu ajutorul regulilor:  44 
+
+regula @ 44 
+lista premise @ ( 
+     timp_liber_zi @ mediu @ 
+     petrece_timp_tv_pc @ mult @ 
+     @ e_rabdatoare @ 
+) concluzie @ 
+    lungime_episod @ = peste_60 89 
+
+timp_liber_zi este mediu a fost derivat cu ajutorul regulilor:  30 
+
+regula @ 30 
+lista premise @ ( 
+     ocupatie @ student @ 
+     @ ! are_copii @ 
+) concluzie @ 
+    timp_liber_zi @ = mediu 80 
+
+ocupatie este student a fost derivat cu ajutorul regulilor:  utiliz 
+
+not are_copii a fost derivat cu ajutorul regulilor:  utiliz 
+
+petrece_timp_tv_pc este mult a fost derivat cu ajutorul regulilor:  utiliz 
+
+e_rabdatoare a fost derivat cu ajutorul regulilor:  utiliz 
+
+lungime_episod este peste_60 a fost derivat cu ajutorul regulilor:  44 
+
+regula @ 44 
+lista premise @ ( 
+     timp_liber_zi @ mediu @ 
+     petrece_timp_tv_pc @ mult @ 
+     @ e_rabdatoare @ 
+) concluzie @ 
+    lungime_episod @ = peste_60 89 
+
+timp_liber_zi este mediu a fost derivat cu ajutorul regulilor:  30 
+
+regula @ 30 
+lista premise @ ( 
+     ocupatie @ student @ 
+     @ ! are_copii @ 
+) concluzie @ 
+    timp_liber_zi @ = mediu 80 
+
+ocupatie este student a fost derivat cu ajutorul regulilor:  utiliz 
+
+not are_copii a fost derivat cu ajutorul regulilor:  utiliz 
+
+petrece_timp_tv_pc este mult a fost derivat cu ajutorul regulilor:  utiliz 
+
+e_rabdatoare a fost derivat cu ajutorul regulilor:  utiliz 
+
+e_rabdatoare a fost derivat cu ajutorul regulilor:  utiliz 
+
+petrece_timp_tv_pc este mult a fost derivat cu ajutorul regulilor:  utiliz 
+
+timp_liber_zi este mediu a fost derivat cu ajutorul regulilor:  30 
+
+regula @ 30 
+lista premise @ ( 
+     ocupatie @ student @ 
+     @ ! are_copii @ 
+) concluzie @ 
+    timp_liber_zi @ = mediu 80 
+
+ocupatie este student a fost derivat cu ajutorul regulilor:  utiliz 
+
+not are_copii a fost derivat cu ajutorul regulilor:  utiliz 
+
+ocupatie este student a fost derivat cu ajutorul regulilor:  utiliz 
+
+varsta_utilizator este adult a fost derivat cu ajutorul regulilor:  utiliz 
+

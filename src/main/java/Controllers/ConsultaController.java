@@ -22,6 +22,8 @@ import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import static io.datafx.controller.flow.container.ContainerAnimations.SWIPE_LEFT;
@@ -44,6 +46,8 @@ public class ConsultaController {
     private HBox hbox;
 
     private ConexiuneProlog conexiuneProlog;
+
+    private List<String> solutii = new ArrayList<>();
 
 //    @FXML
 //    @ActionTrigger("actionButton")
@@ -125,10 +129,37 @@ public class ConsultaController {
     }
 
     public void pushEcranSolutie(String solutie) {
+        solutii.add(solutie);
+
         Platform.runLater(() -> {
 
-            intrebareLabel.setText(solutie);
-            hbox.getChildren().removeAll(hbox.getChildren());
+//            intrebareLabel.setText(solutie);
+//            hbox.getChildren().removeAll(hbox.getChildren());
+//
+//            JFXButton newButton = new JFXButton("Cum?");
+//            newButton.setAlignment(Pos.CENTER);
+//            newButton.getStyleClass().clear();
+//            newButton.getStyleClass().add("button-raised");
+//            newButton.setPrefWidth(80.0);
+//            newButton.setPrefHeight(40.0);
+//
+//            newButton.setOnAction(event -> {
+//                String cumString = "";
+//                try {
+//                    conexiuneProlog.expeditor.trimiteSirSicstus(cumString);
+//                    //remove existing buttons
+//                } catch (Exception ex) {
+//                    ex.printStackTrace();
+//                }
+//            });
+//
+//            hbox.getChildren().add(newButton);
+
+            solutii.forEach(sol -> {
+                System.out.println("solutie de boss\n");
+            });
+
+
 
 
 

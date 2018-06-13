@@ -4,30 +4,39 @@ scop@cel_mai_potrivit_serial.
 
 
 
+
+
+
+
+
+
+
+
+
 regula@1
 lista_premise@(
-     varsta_utilizator@copil@ 
-     @e_animatie@ 
-     ocupatie@elev@ 
+     varsta_utilizator@copil@
+     @e_animatie@
+     ocupatie@elev@
 )
 concluzie@
-    (cel_mai_potrivit_serial@=viata_louie , fc@87@).
+    (cel_mai_potrivit_serial@=viata_cu_louie , fc@87@).
 
 
 regula@2
 lista_premise@(
-     varsta_utilizator@copil@ 
-     @!e_animatie@ 
-     ocupatie@elev@ 
+     varsta_utilizator@copil@
+     @!e_animatie@
+     ocupatie@elev@
 )
 concluzie@
-    (cel_mai_potrivit_serial@=vrajitorii_imputiti , fc@92@).
+    (cel_mai_potrivit_serial@=magicienii_din_weverly_place , fc@92@).
 
 
 regula@3
 lista_premise@(
-     fire_dominanta_utilizator@amuzant@ 
-     varsta_utilizator@adult@ 
+     fire_dominanta_utilizator@amuzant@
+     varsta_utilizator@adult@
 )
 concluzie@
     (gen@=comedie , fc@68@).
@@ -35,12 +44,1008 @@ concluzie@
 
 regula@4
 lista_premise@(
-     @!are_copii@ 
-     @e_animatie@ 
-     gen@comedie@ 
+     @!are_copii@
+     @e_animatie@
+     gen@comedie@
 )
 concluzie@
     (cel_mai_potrivit_serial@=rick_si_morty , fc@80@).
+
+
+
+regula@5
+lista_premise@(
+     fire_dominanta_utilizator@romantic@
+     varsta_utilizator@adolescent@
+)
+concluzie@
+    (gen@=romantic , fc@80@).
+
+
+regula@6
+lista_premise@(
+     fire_dominanta_utilizator@romantic@
+     varsta_utilizator@adult@
+)
+concluzie@
+    (gen@=romantic , fc@88@).
+
+
+regula@7
+lista_premise@(
+     fire_dominanta_utilizator@romantic@
+     varsta_utilizator@senior@
+)
+concluzie@
+    (gen@=romantic , fc@80@).
+
+
+
+
+
+
+
+
+regula@8
+lista_premise@(
+     fire_dominanta_utilizator@amuzant@
+     varsta_utilizator@adolescent@
+)
+concluzie@
+    (gen@=comedie , fc@80@).
+
+
+regula@9
+lista_premise@(
+     fire_dominanta_utilizator@amuzant@
+     varsta_utilizator@senior@
+)
+concluzie@
+    (gen@=comedie , fc@80@).
+
+
+
+
+
+
+
+
+
+regula@10
+lista_premise@(
+     fire_dominanta_utilizator@sumbru@
+     varsta_utilizator@adolescent@
+)
+concluzie@
+    (gen@=horror , fc@80@).
+
+
+regula@11
+lista_premise@(
+     fire_dominanta_utilizator@sumbru@
+     varsta_utilizator@adult@
+)
+concluzie@
+    (gen@=horror , fc@88@).
+
+
+regula@12
+lista_premise@(
+     fire_dominanta_utilizator@sumbru@
+     varsta_utilizator@senior@
+)
+concluzie@
+    (gen@=horror , fc@80@).
+
+
+
+
+
+
+regula@13
+lista_premise@(
+     fire_dominanta_utilizator@ganditor@
+     varsta_utilizator@adolescent@
+)
+concluzie@
+    (gen@=thriller , fc@87@).
+
+
+regula@14
+lista_premise@(
+     fire_dominanta_utilizator@ganditor@
+     varsta_utilizator@adult@
+)
+concluzie@
+    (gen@=thriller , fc@83@).
+
+
+regula@15
+lista_premise@(
+     fire_dominanta_utilizator@ganditor@
+     varsta_utilizator@senior@
+)
+concluzie@
+    (gen@=thriller , fc@81@).
+
+
+
+
+
+
+
+
+
+
+regula@16
+lista_premise@(
+     fire_dominanta_utilizator@curios@
+     varsta_utilizator@adolescent@
+)
+concluzie@
+    (gen@=documentar , fc@87@).
+
+
+regula@17
+lista_premise@(
+     fire_dominanta_utilizator@curios@
+     varsta_utilizator@adult@
+)
+concluzie@
+    (gen@=documentar , fc@83@).
+
+
+regula@18
+lista_premise@(
+     fire_dominanta_utilizator@curios@
+     varsta_utilizator@senior@
+)
+concluzie@
+    (gen@=documentar , fc@81@).
+
+
+
+
+
+regula@19
+lista_premise@(
+     @e_rabdatoare@
+)
+concluzie@
+    (@ongoing , fc@98@).
+
+
+regula@20
+lista_premise@(
+     @!e_rabdatoare@
+)
+concluzie@
+    (@!ongoing , fc@98@).
+
+
+
+
+
+
+
+
+
+
+regula@21
+lista_premise@(
+     @formare_obicei@
+     petrece_timp_tv_pc@mult@
+)
+concluzie@
+    (lungime_serial@=lung , fc@95@).
+
+
+
+regula@22
+lista_premise@(
+     @formare_obicei@
+     petrece_timp_tv_pc@mediu@
+)
+concluzie@
+    (lungime_serial@=lung , fc@78@).
+
+
+regula@23
+lista_premise@(
+     @formare_obicei@
+     petrece_timp_tv_pc@putin@
+)
+concluzie@
+    (lungime_serial@=mediu , fc@80@).
+
+
+
+
+
+
+
+regula@24
+lista_premise@(
+     @!formare_obicei@
+     petrece_timp_tv_pc@mult@
+)
+concluzie@
+    (lungime_serial@=mediu , fc@86@).
+
+
+
+regula@25
+lista_premise@(
+     @!formare_obicei@
+     petrece_timp_tv_pc@mediu@
+)
+concluzie@
+    (lungime_serial@=mediu , fc@76@).
+
+
+regula@26
+lista_premise@(
+     @!formare_obicei@
+     petrece_timp_tv_pc@putin@
+)
+concluzie@
+    (lungime_serial@=scurt , fc@90@).
+
+
+
+
+
+
+
+regula@27
+lista_premise@(
+     ocupatie@angajat@
+     @are_copii@
+)
+concluzie@
+    (timp_liber_zi@=putin , fc@90@).
+
+regula@28
+lista_premise@(
+     ocupatie@angajat@
+     @!are_copii@
+)
+concluzie@
+    (timp_liber_zi@=putin , fc@70@).
+
+regula@29
+lista_premise@(
+     ocupatie@student@
+     @are_copii@
+)
+concluzie@
+    (timp_liber_zi@=putin , fc@98@).
+
+regula@30
+lista_premise@(
+     ocupatie@student@
+     @!are_copii@
+)
+concluzie@
+    (timp_liber_zi@=mediu , fc@80@).
+
+
+regula@31
+lista_premise@(
+     ocupatie@elev@
+     @!are_copii@
+)
+concluzie@
+    (timp_liber_zi@=mult , fc@88@).
+
+
+
+regula@32
+lista_premise@(
+     ocupatie@fara_ocupatie@
+     @are_copii@
+)
+concluzie@
+    (timp_liber_zi@=mediu , fc@85@).
+
+
+
+regula@33
+lista_premise@(
+     ocupatie@fara_ocupatie@
+     @!are_copii@
+)
+concluzie@
+    (timp_liber_zi@=mult , fc@90@).
+
+
+
+
+
+
+regula@34
+lista_premise@(
+     timp_liber_zi@putin@
+     petrece_timp_tv_pc@putin@
+     @e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=sub_30 , fc@85@).
+
+
+
+regula@35
+lista_premise@(
+     timp_liber_zi@putin@
+     petrece_timp_tv_pc@putin@
+     @!e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=sub_30 , fc@95@).
+
+
+
+
+regula@36
+lista_premise@(
+     timp_liber_zi@putin@
+     petrece_timp_tv_pc@mediu@
+     @e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=30_60 , fc@78@).
+
+
+regula@37
+lista_premise@(
+     timp_liber_zi@putin@
+     petrece_timp_tv_pc@mediu@
+     @!e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=sub_30 , fc@86@).
+    (lungime_episod@=30_60 , fc@78@).
+
+
+
+regula@38
+lista_premise@(
+     timp_liber_zi@putin@
+     petrece_timp_tv_pc@mult@
+     @e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=30_60 , fc@86@).
+
+
+regula@39
+lista_premise@(
+     timp_liber_zi@putin@
+     petrece_timp_tv_pc@mult@
+     @!e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=30_60 , fc@97@).
+
+
+
+regula@40
+lista_premise@(
+     timp_liber_zi@mediu@
+     petrece_timp_tv_pc@putin@
+     @e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=sub_30 , fc@83@).
+
+
+regula@41
+lista_premise@(
+     timp_liber_zi@mediu@
+     petrece_timp_tv_pc@putin@
+     @!e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=sub_30 , fc@91@).
+
+
+
+regula@42
+lista_premise@(
+     timp_liber_zi@mediu@
+     petrece_timp_tv_pc@mediu@
+     @e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=30_60 , fc@88@).
+
+
+regula@43
+lista_premise@(
+     timp_liber_zi@mediu@
+     petrece_timp_tv_pc@mediu@
+     @!e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=30_60 , fc@78@).
+
+
+regula@44
+lista_premise@(
+     timp_liber_zi@mediu@
+     petrece_timp_tv_pc@mult@
+     @e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=peste_60 , fc@89@).
+
+
+regula@45
+lista_premise@(
+     timp_liber_zi@mediu@
+     petrece_timp_tv_pc@mult@
+     @!e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=peste_60 , fc@76@).
+
+
+regula@46
+lista_premise@(
+     timp_liber_zi@mult@
+     petrece_timp_tv_pc@putin@
+     @e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=30_60 , fc@84@).
+
+
+regula@47
+lista_premise@(
+     timp_liber_zi@mult@
+     petrece_timp_tv_pc@putin@
+     @!e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=30_60 , fc@72@).
+
+
+regula@48
+lista_premise@(
+     timp_liber_zi@mult@
+     petrece_timp_tv_pc@mediu@
+     @e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=peste_60 , fc@94@).
+
+
+regula@49
+lista_premise@(
+     timp_liber_zi@mult@
+     petrece_timp_tv_pc@mediu@
+     @!e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=peste_60 , fc@70@).
+
+
+regula@50
+lista_premise@(
+     timp_liber_zi@mult@
+     petrece_timp_tv_pc@mult@
+     @e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=peste_60 , fc@99@).
+
+
+regula@51
+lista_premise@(
+     timp_liber_zi@mult@
+     petrece_timp_tv_pc@mult@
+     @!e_rabdatoare@
+)
+concluzie@
+    (lungime_episod@=peste_60 , fc@87@).
+
+
+
+
+regula@52
+lista_premise@(
+     varsta_utilizator@adult@
+     @!e_animatie@
+     lungime_episod@peste_60@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=black_mirror , fc@87@).
+
+
+regula@53
+lista_premise@(
+     varsta_utilizator@adult@
+     @!e_animatie@
+     gen@horror@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=black_mirror , fc@72@).
+
+regula@54
+lista_premise@(
+     varsta_utilizator@adult@
+     @ongoing@
+     gen@thriller@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=black_mirror , fc@88@).
+
+
+
+
+regula@55
+lista_premise@(
+     varsta_utilizator@adult@
+     @ongoing@
+     gen@thriller@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=urzeala_tronurilor , fc@94@).
+
+regula@56
+lista_premise@(
+     lungime_episod@lung@
+     @ongoing@
+     gen@horror@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=urzeala_tronurilor , fc@77@).
+
+regula@57
+lista_premise@(
+     lungime_serial@mediu@
+     lungime_episod@lung@
+     gen@thriller@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=urzeala_tronurilor , fc@88@).
+
+
+
+
+
+
+
+regula@58
+lista_premise@(
+     varsta_utilizator@adult@
+     @!ongoing@
+     gen@comedie@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=friends , fc@87@).
+
+regula@59
+lista_premise@(
+     varsta_utilizator@senior@
+     @!ongoing@
+     lungime_serial@lung@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=friends , fc@92@).
+
+regula@60
+lista_premise@(
+     lungime_serial@lung@
+     varsta_utilizator@adolescent@
+     gen@romantic@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=friends , fc@76@).
+
+
+
+
+
+regula@61
+lista_premise@(
+     varsta_utilizator@adult@
+     @!ongoing@
+     gen@drama@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=house , fc@78@).
+
+regula@62
+lista_premise@(
+     varsta_utilizator@adult@
+     @!ongoing@
+     lungime_serial@lung@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=house , fc@84@).
+
+regula@63
+lista_premise@(
+     lungime_serial@lung@
+     @!e_animatie@
+     gen@drama@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=house , fc@68@).
+
+
+
+
+regula@64
+lista_premise@(
+     varsta_utilizator@adult@
+     @ongoing@
+     gen@documentar@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=vikings , fc@94@).
+
+regula@65
+lista_premise@(
+     varsta_utilizator@adult@
+     @!ongoing@
+     lungime_serial@lung@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=vikings , fc@84@).
+
+regula@66
+lista_premise@(
+     lungime_episod@mediu@
+     lungime_serial@mediu@
+     @!e_animatie@
+     gen@documentar@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=vikings , fc@96@).
+
+
+
+regula@67
+lista_premise@(
+     varsta_utilizator@adult@
+     @ongoing@
+     @!e_animatie@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=mr_robot , fc@89@).
+
+regula@68
+lista_premise@(
+     varsta_utilizator@adult@
+     @ongoing@
+     fire_dominanta_utilizator@ganditor@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=mr_robot , fc@84@).
+
+regula@69
+lista_premise@(
+     lungime_episod@mediu@
+     lungime_serial@mediu@
+     @!e_animatie@
+     gen@thriller@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=mr_robot , fc@96@).
+
+
+
+regula@67
+lista_premise@(
+     varsta_utilizator@adult@
+     @!ongoing@
+     @e_animatie@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=futurama , fc@91@).
+
+regula@68
+lista_premise@(
+     varsta_utilizator@adolescent@
+     @!ongoing@
+     fire_dominanta_utilizator@amuzant@
+     @e_animatie@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=futurama , fc@93@).
+
+regula@69
+lista_premise@(
+     lungime_episod@scurt@
+     lungime_serial@lung@
+     @e_animatie@
+     gen@comedie@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=futurama , fc@90@).
+
+
+
+regula@70
+lista_premise@(
+     varsta_utilizator@adult@
+     @!ongoing@
+     @e_animatie@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=naruto , fc@68@).
+
+regula@71
+lista_premise@(
+     varsta_utilizator@adolescent@
+     @!ongoing@
+     lungime_serial@lung@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=naruto , fc@84@).
+
+regula@72
+lista_premise@(
+     lungime_episod@scurt@
+     lungime_serial@lung@
+     @e_animatie@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=naruto , fc@90@).
+
+
+
+regula@73
+lista_premise@(
+     varsta_utilizator@adolescent@
+     @ongoing@
+     @e_animatie@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=attack_on_titan , fc@88@).
+
+regula@74
+lista_premise@(
+     gen@horror@
+     @ongoing@
+     @!e_animatie@
+     lungime_serial@scurt@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=attack_on_titan , fc@91@).
+
+regula@75
+lista_premise@(
+     lungime_episod@scurt@
+     lungime_serial@scurt@
+     @e_animatie@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=attack_on_titan , fc@90@).
+
+
+
+regula@76
+lista_premise@(
+     varsta_utilizator@adolescent@
+     @!ongoing@
+     @!e_animatie@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=vampire_diaries , fc@78@).
+
+regula@77
+lista_premise@(
+     gen@romantic@
+     varsta_utilizator@adolescent@
+     @!e_animatie@
+     lungime_serial@mediu@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=vampire_diaries , fc@91@).
+
+regula@78
+lista_premise@(
+     lungime_episod@scurt@
+     lungime_serial@lung@
+     gen@horror@
+     @!e_animatie@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=vampire_diaries , fc@86@).
+
+
+regula@79
+lista_premise@(
+     varsta_utilizator@adult@
+     @!ongoing@
+     @!e_animatie@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=dexter , fc@92@).
+
+regula@80
+lista_premise@(
+     gen@drama@
+     varsta_utilizator@adolescent@
+     fire_dominanta_utilizator@sumbru@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=dexter , fc@91@).
+
+regula@81
+lista_premise@(
+     lungime_episod@lung@
+     lungime_serial@mediu@
+     gen@horror@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=dexter , fc@77@).
+
+
+
+
+regula@82
+lista_premise@(
+     varsta_utilizator@adult@
+     @!e_animatie@
+     @e_rabdatoare@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=house_of_cards , fc@90@).
+
+regula@83
+lista_premise@(
+     gen@drama@
+     varsta_utilizator@senior@
+     fire_dominanta_utilizator@curios@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=house_of_cards , fc@91@).
+
+regula@84
+lista_premise@(
+     lungime_episod@lung@
+     lungime_serial@lung@
+     varsta_utilizator@senior@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=house_of_cards , fc@77@).
+
+
+
+
+regula@85
+lista_premise@(
+     varsta_utilizator@adolescent@
+     @!e_animatie@
+     @e_rabdatoare@
+     lungime_serial@mediu@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=narcos , fc@90@).
+
+regula@86
+lista_premise@(
+     gen@thriller@
+     varsta_utilizator@adult@
+     lungime_serial@mediu@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=narcos , fc@81@).
+
+regula@87
+lista_premise@(
+     lungime_episod@mediu@
+     lungime_serial@mediu@
+     varsta_utilizator@senior@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=narcos , fc@83@).
+
+
+
+
+regula@88
+lista_premise@(
+     varsta_utilizator@copil@
+     @!e_animatie@
+     @!e_rabdatoare@
+     lungime_serial@mediu@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=magicienii_din_weverly_place , fc@94@).
+
+regula@89
+lista_premise@(
+     gen@comedie@
+     varsta_utilizator@copil@
+     lungime_serial@mediu@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=magicienii_din_weverly_place , fc@81@).
+
+regula@90
+lista_premise@(
+     lungime_episod@scurt@
+     @!e_animatie@
+     varsta_utilizator@adolescent@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=magicienii_din_weverly_place , fc@83@).
+
+
+
+regula@91
+lista_premise@(
+     varsta_utilizator@copil@
+     @e_animatie@
+     @!e_rabdatoare@
+     lungime_serial@mediu@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=viata_cu_louie , fc@90@).
+
+regula@92
+lista_premise@(
+     gen@comedie@
+     varsta_utilizator@adolescent@
+     lungime_episod@scurt@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=viata_cu_louie , fc@86@).
+
+regula@93
+lista_premise@(
+     @!e_rabdatoare@
+     @!e_animatie@
+     varsta_utilizator@adolescent@
+)
+concluzie@
+    (cel_mai_potrivit_serial@=viata_cu_louie , fc@87@).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48,7 +1053,7 @@ concluzie@
 
 
 intreaba @varsta_utilizator
-enunt@'Care este categoriea ta de varsta?'
+enunt@'Care este categoria dumneavoastra de varsta?'
 variante@(
     copil ||
     adolescent ||
@@ -56,12 +1061,48 @@ variante@(
     senior
 ).
 
+
+intreaba @ocupatie
+enunt@'Care este ocupatia dumneavoastra?'
+variante@(
+    elev ||
+    student ||
+    angajat ||
+    fara_ocupatie
+).
+
+
 intreaba @are_copii
 enunt@'Aveti copii?'
 variante@(
     da ||
     nu
 ).
+
+intreaba @formare_obicei
+enunt@'Doriti sa va formati un obicei din a va uita la acest serial?'
+variante@(
+    da ||
+    nu
+).
+
+
+intreaba @e_rabdatoare
+enunt@'Sunteti o persoana rabdatoare?'
+variante@(
+    da ||
+    nu
+).
+
+
+intreaba @petrece_timp_tv_pc
+enunt@'Cat timp va petreceti la tv/pc?'
+variante@(
+    putin ||
+    mediu ||
+    mult
+).
+
 
 intreaba @fire_dominanta_utilizator
 enunt@'Care este firea dumneavoastra dominanta?'
@@ -81,14 +1122,6 @@ variante@(
 ).
 
 
-intreaba @ocupatie
-enunt@'Care este ocupatia dumneavoastra?'
-variante@(
-    elev ||
-    student ||
-    angajat ||
-    fara_ocupatie
-).
 
 
 

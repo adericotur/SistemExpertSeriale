@@ -23,6 +23,11 @@
                             </StackPane>
                         </JFXRippler>
                     </leftItems>
+                    <rightItems>
+                        <JFXButton fx:id="reinitiazaButton"  layoutX="210.0" layoutY="324.0" mnemonicParsing="false" ripplerFill="#090857">Reinitiaza</JFXButton>
+                        <JFXButton fx:id="afisareFapteButton"  layoutX="210.0" layoutY="324.0" mnemonicParsing="false" ripplerFill="#090857">Afiseaza Fapte</JFXButton>
+                        <JFXButton fx:id="iesireButton" layoutX="210.0" layoutY="324.0" mnemonicParsing="false" ripplerFill="#090857">Iesire</JFXButton>
+                    </rightItems>
                 </JFXToolbar>
             </VBox>
         </top>

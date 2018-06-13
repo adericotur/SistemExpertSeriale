@@ -9,6 +9,7 @@ import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import io.datafx.controller.*;
 import javafx.animation.Transition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
@@ -20,7 +21,6 @@ import java.util.Objects;
 import static io.datafx.controller.flow.container.ContainerAnimations.SWIPE_LEFT;
 
 @FXMLController(value = "/mainController.fxml")
-//@ViewController(value = "/mainController.fxml", title = "Material Design Example")
 public class MainController extends BaseController {
 
     @FXMLViewFlowContext
@@ -43,11 +43,45 @@ public class MainController extends BaseController {
 
     private JFXPopup toolbarPopup;
 
+    @FXML
+    private JFXButton iesireButton;
+
+    @FXML
+    private JFXButton reinitiazaButton;
+
+    @FXML
+    private JFXButton afisareFapteButton;
+
     @PostConstruct
     public void init() throws Exception {
         // init the title hamburger icon
         Objects.requireNonNull(context, "context");
         ConexiuneProlog conexiuneProlog = (ConexiuneProlog) context.getRegisteredObject("ConexiuneProlog");
+
+        iesireButton.setOnAction(action -> {
+            try {
+                conexiuneProlog.expeditor.trimiteMesajSicstus("exit");
+                Platform.exit();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        reinitiazaButton.setOnAction(action -> {
+            try {
+                conexiuneProlog.expeditor.trimiteMesajSicstus("comanda(reinitiaza)");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        afisareFapteButton.setOnAction(action -> {
+            try {
+                conexiuneProlog.expeditor.trimiteMesajSicstus("comanda(fapte)");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
 
         drawer.setOnDrawerOpening(e -> {
             final Transition animation = titleBurger.getAnimation();

@@ -43,7 +43,7 @@ public class Main extends Application {
         decorator.setCustomMaximize(true);
         decorator.setGraphic(new SVGGlyph(""));
 
-        stage.setTitle("SmartChoice");
+        stage.setTitle("Alege-ti serialul");
 
         double width = 1000;
         double height = 600;

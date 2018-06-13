@@ -19,9 +19,9 @@
     <JFXListView fx:id="sideList">
         <Label fx:id="incarca">Incarca</Label>
         <Label fx:id="consulta">Consulta</Label>
-        <Label fx:id="reinitiaza">Reinitiaza</Label>
-        <Label fx:id="afisareFapte">Afisare fapte</Label>
-        <Label fx:id="cum">Cum</Label>
-        <Label fx:id="iesire">Iesire</Label>
+        <!--<Label fx:id="reinitiaza">Reinitiaza</Label>-->
+        <!--<Label fx:id="afisareFapte">Afisare fapte</Label>-->
+        <!--<Label fx:id="cum">Cum</Label>-->
+        <!--<Label fx:id="iesire">Iesire</Label>-->
     </JFXListView>
 </StackPane>
